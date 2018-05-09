@@ -32,7 +32,8 @@ public abstract class TemplateController implements Controller {
         }
 
         return HttpResponse.Builder.builderNew()
-                .body(responseBody).responseCode(responseCode)
+                .body(responseBody)
+                .responseCode(responseCode)
                 .build();
     }
 

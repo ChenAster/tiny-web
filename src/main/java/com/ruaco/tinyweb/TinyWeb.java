@@ -18,12 +18,7 @@ public class TinyWeb {
         for (Filter filter : filters) {
             currentRequest = filter.doFilter(currentRequest);
         }
-        Controller controller = controllers.get(currentRequest.getPath());
-
-        if(null == controller) {
-            return null;
-        } else {
-            return controller.handleRequest(currentRequest);
-        }
+        Controller controller = controllers.getOrDefault(currentRequest.getPath(), NoServiceController.getInstance());
+        return controller.handleRequest(currentRequest);
     }
 }

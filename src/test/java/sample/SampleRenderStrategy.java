@@ -1,4 +1,4 @@
-package com.ruaco.tinyweb.sample;
+package sample;
 
 import com.ruaco.tinyweb.RenderingStrategy;
 
