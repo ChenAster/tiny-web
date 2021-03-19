@@ -1,8 +1,8 @@
 package sample;
 
-import com.ruaco.tinyweb.HttpRequest;
-import com.ruaco.tinyweb.TemplateController;
-import com.ruaco.tinyweb.View;
+import com.web.HttpRequest;
+import com.web.TemplateController;
+import com.web.View;
 
 import java.util.*;
 

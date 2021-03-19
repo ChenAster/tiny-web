@@ -1,7 +1,7 @@
 package sample;
 
-import com.ruaco.tinyweb.Filter;
-import com.ruaco.tinyweb.HttpRequest;
+import com.web.Filter;
+import com.web.HttpRequest;
 
 public class LoggingFilter implements Filter {
     @Override

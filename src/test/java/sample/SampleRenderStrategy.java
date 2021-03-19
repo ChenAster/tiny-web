@@ -1,6 +1,6 @@
 package sample;
 
-import com.ruaco.tinyweb.RenderingStrategy;
+import com.web.RenderingStrategy;
 
 import java.util.List;
 import java.util.Map;
