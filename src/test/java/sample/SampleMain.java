@@ -1,7 +1,5 @@
 package sample;
 
-import com.ruaco.tinyweb.*;
-import com.sample.web.*;
 import com.web.*;
 import org.junit.Assert;
 import org.junit.Test;
