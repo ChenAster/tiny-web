@@ -3,6 +3,7 @@ package com.base;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -22,19 +23,22 @@ public class WebServer {
                 socket = serverSocket.accept();
 
                 OutputStream outputStream = socket.getOutputStream();
-
+                PrintWriter printWriter = new PrintWriter(outputStream);
                 String innerText = "hello, world";
-                String output = "HTTP /1.1 200 ok /r/n"
-                        + "Content-Type:text/html /r/n"
-                        + "Content-Length:" + innerText.length() + "/r/n"
+                String output = "HTTP/1.1 200 ok \r\n"
+                        + "Content-Type:text/html \r\n"
+                        + "Content-Length:" + innerText.length() + "\r\n"
                         + "\r\n"
                         + innerText;
-
-                outputStream.write(output.getBytes(StandardCharsets.UTF_8));
-
+                printWriter.print(output);
+                printWriter.flush();
+                printWriter.close();
+                outputStream.close();
                 socket.close();
             } catch (Exception e) {
                 e.printStackTrace();
+            } finally {
+
             }
         }
     }
