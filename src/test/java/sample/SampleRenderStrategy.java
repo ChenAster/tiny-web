@@ -1,13 +1,13 @@
 package sample;
 
-import com.web.RenderingStrategy;
+import com.web.RenderStrategy;
 
 import java.util.List;
 import java.util.Map;
 /**
  * route = sample
  * */
-public class SampleRenderStrategy implements RenderingStrategy {
+public class SampleRenderStrategy implements RenderStrategy {
 
     @Override
     public String renderView(Map<String, List<String>> model) {

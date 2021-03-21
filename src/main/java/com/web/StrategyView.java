@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class StrategyView implements View {
 
-    private final RenderingStrategy viewRender;
+    private final RenderStrategy viewRender;
 
-    public StrategyView(RenderingStrategy viewRender) {
+    public StrategyView(RenderStrategy viewRender) {
         this.viewRender = viewRender;
     }
 
