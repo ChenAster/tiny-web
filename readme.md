@@ -9,4 +9,5 @@ __base__
 __framework__
 
 - filter
-- controller
+- controller (implements 404/500)
+- render_strategy (implements json render)

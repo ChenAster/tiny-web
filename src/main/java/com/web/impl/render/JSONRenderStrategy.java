@@ -1,4 +1,4 @@
-package com.web.impl;
+package com.web.impl.render;
 
 import com.google.gson.Gson;
 import com.web.RenderStrategy;
