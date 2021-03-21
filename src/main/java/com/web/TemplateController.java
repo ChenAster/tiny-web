@@ -8,7 +8,7 @@ import java.util.Map;
 
 public abstract class TemplateController implements Controller {
 
-    private View view;
+    private final View view;
 
     public TemplateController(View view) {
         this.view = view;

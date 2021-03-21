@@ -2,25 +2,25 @@ package com.web;
 
 public class HttpResponse {
     private final String body;
-    private final Integer responseCode;
+    private final Integer statusCode;
 
     public String getBody() {
         return body;
     }
 
     public Integer getResponseCode() {
-        return responseCode;
+        return statusCode;
     }
 
     private HttpResponse(Builder builder) {
         this.body = builder.body;
-        this.responseCode = builder.responseCode;
+        this.statusCode = builder.responseCode;
     }
 
     @Override
     public String toString() {
         return String.format("response code: %s\nresponse body:\n%s\n",
-                this.responseCode,
+                this.statusCode,
                 this.body);
     }
 

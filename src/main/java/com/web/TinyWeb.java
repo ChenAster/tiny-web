@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 public class TinyWeb {
-    private Map<String, Controller> controllers;
-    private List<Filter> filters;
+    private final Map<String, Controller> controllers;
+    private final List<Filter> filters;
 
     public TinyWeb(Map<String, Controller> controllers, List<Filter> filters) {
         this.controllers = controllers;

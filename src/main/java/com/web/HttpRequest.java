@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HttpRequest {
-
     private final String path;
     private final String body;
     private final Map<String, String> headers;
@@ -42,7 +41,7 @@ public class HttpRequest {
     public static class Builder {
         private String path;
         private String body;
-        private Map<String, String> headers = new HashMap<String, String>();
+        private Map<String, String> headers = new HashMap<>();
 
         public Builder path(String path) {
             this.path = path;

@@ -1,18 +1,20 @@
 package com.base;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.io.PrintWriter;
+import com.web.HttpRequest;
+import com.web.HttpResponse;
+import com.web.TinyWeb;
+
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 
 public class WebServer {
     final private int port;
+    final private TinyWeb web;
 
-    public WebServer(int port) {
+    public WebServer(int port, TinyWeb web) {
         this.port = port;
+        this.web = web;
     }
 
     public void run() throws IOException {
@@ -22,23 +24,25 @@ public class WebServer {
             try {
                 socket = serverSocket.accept();
 
+                InputStream inputStream = socket.getInputStream();
+                BufferedInputStream bis = new BufferedInputStream(inputStream);
+                StringBuilder builder = new StringBuilder();
+                while (bis.available() > 0) {
+                    char ch = (char)bis.read();
+                    builder.append(ch);
+                }
+                HttpRequest request = HttpParseUtils.processHttpRequest(builder.toString());
+                HttpResponse response = web.handleRequest(request);
                 OutputStream outputStream = socket.getOutputStream();
                 PrintWriter printWriter = new PrintWriter(outputStream);
-                String innerText = "hello, world";
-                String output = "HTTP/1.1 200 ok \r\n"
-                        + "Content-Type:text/html \r\n"
-                        + "Content-Length:" + innerText.length() + "\r\n"
-                        + "\r\n"
-                        + innerText;
-                printWriter.print(output);
+                printWriter.print(HttpParseUtils.processHttpResponse(response));
                 printWriter.flush();
                 printWriter.close();
                 outputStream.close();
+                inputStream.close();
                 socket.close();
             } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-
             }
         }
     }
