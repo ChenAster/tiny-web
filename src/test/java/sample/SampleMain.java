@@ -20,8 +20,8 @@ public class SampleMain {
         SampleController controller = new SampleController(view);
         Filter loggerFilter = new LoggingFilter();
 
-        Map<String, Controller> controllers = new HashMap<String, Controller>();
-        List<Filter> filters = new ArrayList<Filter>();
+        Map<String, Controller> controllers = new HashMap<>();
+        List<Filter> filters = new ArrayList<>();
 
         controllers.put("sample", controller);
         filters.add(loggerFilter);
